@@ -1,0 +1,41 @@
+<html>
+    <head>
+    </head>
+<body id="content">
+    <table width="100%" id="table">
+    </table>
+</body>
+    <script>
+        var images = /**/[]/**/;
+//        images = /**/[
+//            {'diff':0, 'src':'../source/1.png', 'cmp':'../cmp/1.png', 'out':'../aaa1.png'},
+//            {'diff':0, 'src':'aaa1.png', 'cmp':'aaa1.png', 'out':'aaa1.png'}
+//        ]/**/;
+        var table = document.getElementById('table');
+        var trs;
+        var tds;
+        function addHeader(table, name, diff, orig) {
+            var trs = document.createElement('tr');
+            trs.innerHTML = '<td colspan="3"><h1>diff: ' + diff + '% | diff:' + name + ' | orig:' + orig + '</h1></td>'
+            table.appendChild(trs);
+        }
+
+        function buildImage(imgPath) {
+            tds = document.createElement('td');
+            tds.innerHTML = '<img src=' + imgPath + ' width="360">';
+            return tds;
+        }
+
+        for(var i = 0; i < images.length; i++) {
+            addHeader(table, images[i]['src'], images[i]['diff'], images[i]['orig']);
+            trs = document.createElement('tr');
+
+
+            trs.appendChild(buildImage(images[i]['src']))
+            trs.appendChild(buildImage(images[i]['cmp']))
+            trs.appendChild(buildImage(images[i]['out']))
+
+            table.appendChild(trs)
+        }
+    </script>
+</html>
