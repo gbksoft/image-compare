@@ -2,38 +2,265 @@
     <head>
     </head>
 <body id="content">
-    <table width="100%" id="table">
-    </table>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 0 90px;
+
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Raleway';
+            font-weight: normal;
+            font-style: normal;
+            background: #FAFAFA;
+        }
+
+        @font-face {
+            font-family: 'Raleway';
+            src: url('./fonts/Raleway-Bold.eot');
+            src: url('./fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+            url('./fonts/Raleway-Bold.woff2') format('woff2'),
+            url('./fonts/Raleway-Bold.woff') format('woff'),
+            url('./fonts/Raleway-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Raleway';
+            src: url('./fonts/Raleway-Medium.eot');
+            src: url('./fonts/Raleway-Medium.eot?#iefix') format('embedded-opentype'),
+            url('./fonts/Raleway-Medium.woff2') format('woff2'),
+            url('./fonts/Raleway-Medium.woff') format('woff'),
+            url('./fonts/Raleway-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Raleway';
+            src: url('./fonts/Raleway-Regular.eot');
+            src: url('./fonts/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
+            url('./fonts/Raleway-Regular.woff2') format('woff2'),
+            url('./fonts/Raleway-Regular.woff') format('woff'),
+            url('./fonts/Raleway-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 224px;
+            height: 21px;
+            background: url('./logo.svg') no-repeat center;
+        }
+
+        .header {
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .header__top {
+            padding: 20px 0;
+        }
+
+        .header__main {
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .header-title {
+            color: #00A9E1;
+            font-weight: 500;
+            font-size: 50px;
+        }
+
+        .img-block {
+            padding-bottom: 180px;
+            overflow: hidden;
+        }
+
+        .img-info {
+            padding: 30px 0;
+            color: #797979;
+            font-size: 18px;
+        }
+
+        .img-info span {
+            color: #000;
+        }
+
+        .img-type {
+            margin-bottom: 20px;
+            color: #797979;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 -80px;
+        }
+
+        .col {
+            width: 33%;
+            padding: 0 80px;
+        }
+
+        .box {
+            background: #fff;
+            border: 1px solid #E8E8E8;
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        @media only screen and (max-width: 1199px) {
+            .row {
+                margin: 0 -60px;
+            }
+
+            .col {
+                padding: 0 60px;
+            }
+        }
+
+        @media only screen and (max-width: 992px) {
+            .row {
+                margin: 0 -40px;
+            }
+
+            .col {
+                padding: 0 40px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .container {
+                max-width: 750px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .container {
+                max-width: 970px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .container {
+                max-width: 1170px;
+            }
+        }
+
+        @media only screen and (min-width: 1500px) {
+            .container {
+                max-width: 1440px;
+            }
+        }
+    </style>
+    <div class="header">
+        <div class="header__top">
+            <a href="https://gbksoft.com" class="logo"></a>
+        </div>
+        <div class="header__main container">
+            <h1 class="header-title">Screens Comparison</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div id="imgBlock" class="img-block">
+        </div>
+    </div>
 </body>
     <script>
         var images = /**/[]/**/;
-//        images = /**/[
-//            {'diff':0, 'src':'../source/1.png', 'cmp':'../cmp/1.png', 'out':'../aaa1.png'},
-//            {'diff':0, 'src':'aaa1.png', 'cmp':'aaa1.png', 'out':'aaa1.png'}
-//        ]/**/;
-        var table = document.getElementById('table');
+       /*images = [
+           {'diff':0, 'src':'./norris.jpg', 'cmp':'./norris.jpg', 'out':'./norris.jpg'},
+           {'diff':0, 'src':'./norris.jpg', 'cmp':'./norris.jpg', 'out':'./norris.jpg'}
+       ]*/;
+
+        var table = document.getElementById('imgBlock');
         var trs;
         var tds;
         function addHeader(table, name, diff, orig) {
-            var trs = document.createElement('tr');
-            trs.innerHTML = '<td colspan="3"><h1>diff: ' + diff + '% | diff:' + name + ' | orig:' + orig + '</h1></td>'
+            trs = document.createElement('div');
+            trs.classList.add('img-info');
+
+            trs.innerHTML = '<p>File Name:&nbsp;<span>diff: ' + diff + '% | diff:' + name + ' | orig:' + orig + '</span></p>'
             table.appendChild(trs);
         }
 
-        function buildImage(imgPath) {
-            tds = document.createElement('td');
-            tds.innerHTML = '<img src=' + imgPath + ' width="360">';
+        function buildImage(imgPath, type) {
+            tds = document.createElement('div');
+            tds.classList.add('col');
+
+            tds.innerHTML = '<div class="img-type">' + type + '</div><div class="box"><img src=' + imgPath + ' width="360"></div>';
             return tds;
         }
 
         for(var i = 0; i < images.length; i++) {
-            addHeader(table, images[i]['src'], images[i]['diff'], images[i]['orig']);
-            trs = document.createElement('tr');
+            addHeader(table, images[i]['src'], images[i]['diff'], images[i]['out']);
+            trs = document.createElement('div');
+            trs.classList.add('row');
 
-
-            trs.appendChild(buildImage(images[i]['src']))
-            trs.appendChild(buildImage(images[i]['cmp']))
-            trs.appendChild(buildImage(images[i]['out']))
+            trs.appendChild(buildImage(images[i]['src'], 'reference'));
+            trs.appendChild(buildImage(images[i]['cmp'], 'test'));
+            trs.appendChild(buildImage(images[i]['out'], 'diff'));
 
             table.appendChild(trs)
         }

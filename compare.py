@@ -82,10 +82,13 @@ def compare_files(files):
     build_report(report)
 
 
-def zipdir(path, ziph):
+def zipdir(path, ziph, level = False):
     for root, dirs, files in os.walk(path):
         for f in files:
-            ziph.write(os.path.join(root, f))
+            if level:
+                ziph.write(os.path.join(root,  f), os.path.join(root,  f).replace('base_report/', ''))
+            else:
+                ziph.write(os.path.join(root, f))
 
 
 def build_report(report):
@@ -107,7 +110,11 @@ def build_report(report):
 
     zip_name = 'report.zip'
     zf = zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED)
+
     zf.write(report_path)
+    zf.write('base_report/logo.svg', 'logo.svg')
+    zipdir('base_report/fonts/', zf, True)
+
     zf.write(json_path)
     zipdir('cmp/', zf)
     zipdir('src/', zf)

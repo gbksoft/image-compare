@@ -12,7 +12,7 @@ tools looked like monstrous machinery
 - [x] Compare two images
 - [x] Bulk compare, using config file
 
-<img src="img/qx7MKi240334319a463961dca060bb8ac0ad19.png"  width="500">
+<img src="img/qx7MKi240334319a463961dca060bb8ac0ad19.png"  width="640">
 
 # Requirements
 - Python 2.7+ (should work with Python 3+ or with minimal modifications)
@@ -58,6 +58,12 @@ Consist of `;` separated files same as in comparing 2 images
 After comparing images script generates `report.zip` archive, which will
  contain all needed files (sources, compare and result files) along with 
  html file to view report in browser and `report.json`
+ 
+# Changelog
+### 3 May 2019
+* Initial release
+### 16 May 2019
+* New report file, now it will look much prettier
 
 # Let us know
 We'd be very happy if you sent links to your projects where you use our component. Just send us email to [github@gbksoft.com](mailto:github@gbksoft.com)
