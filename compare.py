@@ -43,15 +43,16 @@ def image_compare(path_source, path_compare, out_path):
 
 
 def show_help():
-    print 'GBKSoft image compare utility help:'
-    print 'python compare.py --help - show this message'
-    print 'Usage: python compare.py path/to/reference/file path/to/compare/file path/to/output/file'
-    print ' First file is full path original file\n' \
-          ' second file (full path) will be compared to first one\n' \
-          ' third file - filename only output where to save image diff.'
-    print 'python compare.py -c /path/to/config/file\n' \
-          'compare several files in one batch, file format is one arg per line:\n' \
-          'path/to/reference/file;path/to/compare/file;path/to/output/file'
+    print ' GBKSoft image compare utility help:\n'
+    print ' python compare.py --help - show this message\n'
+    print ' Usage: python compare.py path/to/reference/file path/to/compare/file path/to/output/file'
+    print '  First file is full path original file\n' \
+          '  second file (full path) will be compared to first one\n' \
+          '  third file - filename only output where to save image diff.\n'
+    print ' python compare.py -c /path/to/config/file\n' \
+          ' compare several files in one batch, file format is one arg per line:\n' \
+          ' path/to/reference/file;path/to/compare/file;path/to/output/file\n'
+    print ' -noreport flag if don\'t want report file to be generated'
 
 
 def parse_config(config_file):
@@ -61,7 +62,7 @@ def parse_config(config_file):
     return files
 
 
-def compare_files(files):
+def compare_files(files, generate_report = True):
     report = []
     for f in files:
         path = f.split(';')
@@ -79,7 +80,8 @@ def compare_files(files):
         result['orig'] = path[0]
         report.append(result)
 
-    build_report(report)
+    if generate_report:
+        build_report(report)
 
 
 def zipdir(path, ziph, level = False):
@@ -130,12 +132,18 @@ def build_report(report):
 
 
 if __name__ == '__main__':
+
+    generate_report = True
+    if '-noreport' in sys.argv:
+        generate_report = False
+        sys.argv.remove('-noreport')
+
     if len(sys.argv) == 3 and sys.argv[1] == '-c':
         print ('Done comparing:')
-        compare_files(parse_config(sys.argv[2]))
+        compare_files(parse_config(sys.argv[2]), generate_report = generate_report)
         exit()
     if len(sys.argv) < 4 or (len(sys.argv) == 1 and (sys.argv[1] == '-h' or sys.argv[1] == '--help')):
         show_help()
         exit()
     print ('Done comparing:')
-    compare_files([';'.join([sys.argv[1], sys.argv[2], sys.argv[3]])])
+    compare_files([';'.join([sys.argv[1], sys.argv[2], sys.argv[3]])], generate_report = generate_report)

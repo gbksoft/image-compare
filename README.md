@@ -64,6 +64,8 @@ After comparing images script generates `report.zip` archive, which will
 * Initial release
 ### 16 May 2019
 * New report file, now it will look much prettier
+### 17 May 2019
+* Added `-noreport` flag, which will prevent generating report
 
 # Let us know
 We'd be very happy if you sent links to your projects where you use our component. Just send us email to [github@gbksoft.com](mailto:github@gbksoft.com)
