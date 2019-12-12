@@ -18,8 +18,8 @@ def rms_diff(im1, im2):
 
 
 def image_compare(path_source, path_compare, out_path):
-    src_image = Image.open(path_source)
-    cmp_image = Image.open(path_compare)
+    src_image = Image.open(path_source).convert('RGB')
+    cmp_image = Image.open(path_compare).convert('RGB')
 
     result = ImageChops.difference(src_image, cmp_image)
     result.thumbnail((360, 640))
